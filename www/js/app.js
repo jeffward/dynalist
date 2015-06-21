@@ -57,15 +57,15 @@ angular.module('dynalist', ['ionic', 'dynalist.controllers'])
       }
     })
 
-  .state('app.store', {
+  .state('app.single', {
     url: "/stores/:storeId",
     views: {
       'menuContent': {
-        templateUrl: "templates/stores.html",
-        controller: 'StoresCtrl'
+        templateUrl: "templates/store.html",
+        controller: 'StoreCtrl'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/store');
+  $urlRouterProvider.otherwise('/app/stores');
 });

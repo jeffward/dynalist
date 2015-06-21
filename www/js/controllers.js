@@ -50,7 +50,17 @@ angular.module('dynalist.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+  
+  $scope.doNewStore = function() {
+    alert('Hot Damn');
+  };
 })
 
 .controller('StoreCtrl', function($scope, $stateParams) {
+  $scope.shoppingList = [
+    { title: 'Bread', id: 1 },
+    { title: 'Carrots', id: 2 },
+    { title: 'Romain', id: 3 },
+    { title: 'Eggs', id: 4 }
+  ];
 });
