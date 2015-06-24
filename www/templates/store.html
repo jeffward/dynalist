@@ -1,4 +1,9 @@
-<ion-view view-title="Shopping List">
+<ion-view view-title="{{storeName}} List">
+   <ion-nav-buttons side="secondary">
+      <button class="button" ng-click="doNewItem()">
+        Add
+      </button>
+     </ion-nav-buttons>
   <ion-content>
      <ion-list>
       <ion-item ng-repeat="item in shoppingList">

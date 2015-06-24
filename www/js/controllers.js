@@ -1,3 +1,4 @@
+
 angular.module('dynalist.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
@@ -39,28 +40,39 @@ angular.module('dynalist.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+  
+  $scope.stores = [
+    { title: 'Trader Joe\'s', id: 1 },
+    { title: 'Whole Foods', id: 2 },
+    { title: 'Aldi', id: 3 },
+    { title: 'Jewel', id: 4 },
+    { title: 'Mejier', id: 5 },
+    { title: 'Walgreens', id: 6 }
+  ];
 })
 
 .controller('StoresCtrl', function($scope) {
-  $scope.stores = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+  
   
   $scope.doNewStore = function() {
-    alert('Hot Damn');
+    $scope.stores.unshift({title: "New Store", id: 7});
   };
 })
 
-.controller('StoreCtrl', function($scope, $stateParams) {
+.controller('StoreCtrl', function($scope, $stateParams, $filter) {
+  
+  var theStore = $filter('filter')($scope.stores, {id: $stateParams['storeId']});
+  $scope.storeName = theStore[0].title;
+   
   $scope.shoppingList = [
     { title: 'Bread', id: 1 },
     { title: 'Carrots', id: 2 },
     { title: 'Romain', id: 3 },
     { title: 'Eggs', id: 4 }
   ];
+  
+   $scope.doNewItem = function() {
+    $scope.shoppingList.unshift({title: "Bla Bla", id: 5});
+  };
+  
 });
